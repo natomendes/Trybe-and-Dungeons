@@ -7,7 +7,7 @@ const makeSut = (): Race => {
   return new Halfling(name, dexterity);
 }
 
-describe('Dwarf Class', () => {  
+describe('Halfling Class', () => {  
   it('Should have maxLifePoints equal to 99', () => {
     const sut = makeSut();
     expect(sut.maxLifePoints).toBe(60)

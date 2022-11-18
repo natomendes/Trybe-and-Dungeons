@@ -7,7 +7,7 @@ const makeSut = (): Race => {
   return new Elf(name, dexterity);
 }
 
-describe('Dwarf Class', () => {  
+describe('Elf Class', () => {  
   it('Should have maxLifePoints equal to 99', () => {
     const sut = makeSut();
     expect(sut.maxLifePoints).toBe(99)
