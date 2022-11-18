@@ -9,7 +9,7 @@
     "test": "jest --runInBand --verbose",
     "fasttest": "jest --runInBand --verbose --bail",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "test:staged": "jest -c jest-staged.config.js --passWithNoTests --silent --runInBand"
+    "test:staged": "jest -c jest-staged.config.json --passWithNoTests --silent --runInBand --no-cache"
   },
   "repository": {
     "type": "git",
