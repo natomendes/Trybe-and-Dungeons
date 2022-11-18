@@ -15,8 +15,13 @@ describe('Dwarf Class', () => {
     expect(sut.maxLifePoints).toBeDefined();
   });
 
-  it('Should return Thorin when name getter is called', () => {
+  it('Should return the right name when getter is called', () => {
     const sut = makeSut();
     expect(sut.name).toBe('Thorin');
+  });
+
+  it('Should return the right dexterity when getter is called', () => {
+    const sut = makeSut();
+    expect(sut.dexterity).toBe(50);
   });
 })
