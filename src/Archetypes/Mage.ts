@@ -7,8 +7,9 @@ export default class Mage extends Archetype {
     name: string,
     private readonly _energyType: EnergyType,
     special?: number,
+    cost?: number,
   ) {
-    super(name, special || 0);
+    super(name, special || 0, cost || 0);
 
     Mage.createdInstances += 1;
   }
