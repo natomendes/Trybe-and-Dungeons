@@ -14,6 +14,10 @@ export default class Mage extends Archetype {
     Mage.createdInstances += 1;
   }
 
+  static createdArchetypeInstances(): number {
+    return Mage.createdInstances;
+  }
+
   get energyType(): EnergyType {
     return this._energyType;
   }

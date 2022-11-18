@@ -14,6 +14,10 @@ export default class Warrior extends Archetype {
     Warrior.createdInstances += 1;
   }
 
+  static createdArchetypeInstances(): number {
+    return Warrior.createdInstances;
+  }
+
   get energyType(): EnergyType {
     return this._energyType;
   }
