@@ -1,18 +1,17 @@
-import Race from "../Races";
-import Dwarf from "../Races/Dwarf";
+import Race, { Dwarf } from "../Races";
+
 
 const makeSut = (): Race => {
   const name = 'Thorin';
   const dexterity = 50;
-  const maxLifePoints = 80;
 
-  return new Dwarf(name, dexterity, maxLifePoints);
+  return new Dwarf(name, dexterity);
 }
 
 describe('Dwarf Class', () => {  
-  it('Should have attribute maxLifePoints', () => {
+  it('Should have maxLifePoints equal to 80', () => {
     const sut = makeSut();
-    expect(sut.maxLifePoints).toBeDefined();
+    expect(sut.maxLifePoints).toBe(80)
   });
 
   it('Should return the right name when getter is called', () => {
@@ -25,3 +24,7 @@ describe('Dwarf Class', () => {
     expect(sut.dexterity).toBe(50);
   });
 })
+
+
+
+
