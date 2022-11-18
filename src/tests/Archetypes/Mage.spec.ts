@@ -2,20 +2,17 @@ import Archetype, { Mage } from "../../Archetypes"
 
 const makeSut = (): Archetype => {
   const name = 'Gandalf';
-  const energyType = 'mana';
   return new Mage(name);
 }
 
 const makeSutWithSpecialValue = (): Archetype => {
   const name = 'Gandalf';
-  const energyType = 'mana';
   const special  = 100;
   return new Mage(name, special);
 }
 
 const makeSutWithCostValue = (): Archetype => {
   const name = 'Gandalf';
-  const energyType = 'mana';
   const cost  = 70;
   return new Mage(name, undefined, cost);
 }
