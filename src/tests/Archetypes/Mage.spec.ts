@@ -13,6 +13,13 @@ const makeSutWithSpecialValue = (): Archetype => {
   return new Mage(name, energyType, special);
 }
 
+const makeSutWithCostValue = (): Archetype => {
+  const name = 'Gandalf';
+  const energyType = 'mana';
+  const cost  = 70;
+  return new Mage(name, energyType, undefined, cost);
+}
+
 describe('Mage Class', () => {
   it('Should return the right name when getter is called', () => {
     const sut = makeSut()
@@ -27,5 +34,10 @@ describe('Mage Class', () => {
   it('Should return the right special when value is provided to constructor', () => {
     const sut = makeSutWithSpecialValue()
     expect(sut.special).toBe(100);
+  });
+
+  it('Should return the right cost when value is provided to constructor', () => {
+    const sut = makeSutWithCostValue()
+    expect(sut.cost).toBe(70);
   });
 })
