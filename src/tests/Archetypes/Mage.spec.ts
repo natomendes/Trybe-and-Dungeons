@@ -11,4 +11,9 @@ describe('Mage Class', () => {
     const sut = makeSut()
     expect(sut.name).toBe('Gandalf');
   });
+
+  it('Should have mana as energyType', () => {
+    const sut = makeSut()
+    expect(sut.energyType).toBe('mana');
+  });
 })
