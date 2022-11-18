@@ -1,4 +1,4 @@
-import Race, { Dwarf } from "../Races";
+import Race, { Dwarf } from "../../Races";
 
 
 const makeSut = (): Race => {

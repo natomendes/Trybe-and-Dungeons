@@ -1,4 +1,4 @@
-import Race, { Halfling } from "../Races";
+import Race, { Halfling } from "../../Races";
 
 const makeSut = (): Race => {
   const name = 'Legolas';
