@@ -5,7 +5,7 @@ import Fighter, { SimpleFighter } from './Fighter';
 import Race from './Races';
 import getRandomInt from './utils';
 
-export default class Character implements Fighter, SimpleFighter {
+export default class Character implements Fighter {
   private _maxLifePoints: number = this._race.maxLifePoints / 2;
   private _lifePoints: number = this._maxLifePoints;
   private _strength: number = getRandomInt(1, 10);
