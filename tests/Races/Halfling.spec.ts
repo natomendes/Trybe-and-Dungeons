@@ -22,4 +22,8 @@ describe('Halfling Class', function () {
     const sut = makeSut();
     expect(sut.dexterity).toBe(80);
   });
+
+  it('Should have createdRacesInstances static method', function () {
+    expect(Halfling.createdRacesInstances).toBeDefined();
+  });
 });
