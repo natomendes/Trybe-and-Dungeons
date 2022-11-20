@@ -22,4 +22,8 @@ describe('Orc Class', function () {
     const sut = makeSut();
     expect(sut.dexterity).toBe(50);
   });
+
+  it('Should have createdRacesInstances static method', function () {
+    expect(Orc.createdRacesInstances).toBeDefined();
+  });
 });
