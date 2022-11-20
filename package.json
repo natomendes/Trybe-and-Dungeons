@@ -10,7 +10,8 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "test": "jest --passWithNoTests --silent --runInBand --no-cache",
     "test:staged": "npm test -- --findRelatedTests",
-    "test:unit": "npm test -- --watch"
+    "test:unit": "npm test -- --watch",
+    "test:ci": "npm test -- --coverage"
   },
   "repository": {
     "type": "git",

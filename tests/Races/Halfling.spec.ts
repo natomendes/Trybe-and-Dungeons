@@ -24,6 +24,8 @@ describe('Halfling Class', function () {
   });
 
   it('Should have createdRacesInstances static method', function () {
-    expect(Halfling.createdRacesInstances).toBeDefined();
+    const createdRacesSpy = jest.spyOn(Halfling, 'createdRacesInstances');
+    Halfling.createdRacesInstances();
+    expect(createdRacesSpy).toHaveBeenCalled();
   });
 });
