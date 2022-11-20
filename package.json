@@ -10,7 +10,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "test": "jest --passWithNoTests --silent --runInBand --no-cache",
     "test:staged": "npm test -- --findRelatedTests",
-    "test:unit": "jest -c jest-staged.config.json --watch"
+    "test:unit": "npm test -- --watch"
   },
   "repository": {
     "type": "git",

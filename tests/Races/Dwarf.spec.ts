@@ -22,4 +22,8 @@ describe('Dwarf Class', function () {
     const sut = makeSut();
     expect(sut.dexterity).toBe(50);
   });
+
+  it('Should have createdRacesInstances static method', function () {
+    expect(Dwarf.createdRacesInstances).toBeDefined();
+  });
 });
