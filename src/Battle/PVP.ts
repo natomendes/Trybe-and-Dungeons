@@ -30,9 +30,7 @@ export default class PVP extends Battle {
   fight(): number {
     while (this.playerOne.lifePoints > -1
         && this.playerTwo.lifePoints > -1) {
-      this.playRound();     
-      console.log('SuperLife: ', this.playerOne.lifePoints);
-      console.log('SubLife: ', this.playerTwo.lifePoints);
+      this.playRound();
     }
     return super.fight();
   }
