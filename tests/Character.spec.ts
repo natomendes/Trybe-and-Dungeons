@@ -78,6 +78,14 @@ describe('Character Class', function () {
     expect(sut.lifePoints).toBeGreaterThan(lifePointsBeforeLevelUp);
   });
 
+  it('Should set maxlifePoints to race maxLifePoints when goes over race maxLife', function () {
+    const { sut } = makeSut();
+    while (sut.lifePoints < 99) {
+      sut.levelUp();
+    }
+    expect(sut.lifePoints).toBe(sut.race.maxLifePoints);
+  });
+
   it('Should increment strength when levelUp is called', function () {
     const { sut } = makeSut();
     const strengthBeforeLevelUp = sut.strength;
