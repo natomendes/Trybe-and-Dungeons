@@ -1,4 +1,24 @@
+/* eslint-disable max-lines-per-function */
 import Archetype, { Mage } from '../../src/Archetypes';
+import { EnergyType } from '../../src/Energy';
+
+class MageWithoutStatic extends Archetype {
+  private static createdInstances = 0;
+  private readonly _energyType: EnergyType = 'mana';
+  constructor(
+    name: string,
+    special?: number,
+    cost?: number,
+  ) {
+    super(name, special || 0, cost || 0);
+
+    MageWithoutStatic.createdInstances += 1;
+  }
+
+  get energyType(): EnergyType {
+    return this._energyType;
+  }
+}
 
 const makeSut = (): Archetype => {
   const name = 'Gandalf';
@@ -36,5 +56,9 @@ describe('Mage Class', function () {
   it('Should return the right cost when value is provided to constructor', function () {
     const sut = makeSutWithCostValue();
     expect(sut.cost).toBe(70);
+  });
+
+  it('Should throws when createdRacesInstances static method is not implemented', function () {
+    expect(MageWithoutStatic.createdArchetypeInstances).toThrow();
   });
 });
