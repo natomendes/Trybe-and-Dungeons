@@ -1,18 +1,20 @@
-import { SimpleFighter } from "../Fighter";
-import Monster from "../Monster";
+/* eslint-disable max-lines-per-function */
+/* eslint-disable class-methods-use-this */
+import { SimpleFighter } from '../src/Fighter';
+import Monster from '../src/Monster';
 
 const makeSimpleFighterStub = (): SimpleFighter => {
   class SimpleFighterStub implements SimpleFighter {
-    lifePoints: number = 100;
-    strength: number = 50;
+    lifePoints = 100;
+    strength = 50;
     attack(): void {}
     receiveDamage(attackPoints: number): number {
-      return 0;
+      return attackPoints;
     }
   }
 
   return new SimpleFighterStub();
-}
+};
 
 interface SutTypes {
   sut: Monster
@@ -24,32 +26,32 @@ const makeSut = (): SutTypes => {
   const sut = new Monster();
   return {
     sut,
-    simpleFighterStub
-  }
-}
+    simpleFighterStub,
+  };
+};
 
-describe('Monster Class', () => {
-  it('Should have the attribute lifePoints set as default to 85', () => {
+describe('Monster Class', function () {
+  it('Should have the attribute lifePoints set as default to 85', function () {
     const { sut } = makeSut();
     expect(sut.lifePoints).toBe(85);
   });
 
-  it('Should have the attribute strength set as default to 63', () => {
+  it('Should have the attribute strength set as default to 63', function () {
     const { sut } = makeSut();
     expect(sut.strength).toBe(63);
   });
 
-  it('Should set lifePoints to -1 if lifePoints drop below 1 after receiveDamage is called', () => {
+  it('Should set lifePoints to -1 if lifePoints drop below 1 after receiveDamage is called', function () {
     const attackPoints = 170;
     const { sut } = makeSut();
     sut.receiveDamage(attackPoints);
     expect(sut.lifePoints).toBe(-1);
   });
 
-  it('Should call receiveDamage on the enemy pass as argument when attack method is called', () => {
+  it('Should call receiveDamage on the enemy pass as argument when attack method is called', function () {
     const { sut, simpleFighterStub } = makeSut();
     const receiveDamageSpy = jest.spyOn(simpleFighterStub, 'receiveDamage');
     sut.attack(simpleFighterStub);
     expect(receiveDamageSpy).toHaveBeenCalledWith(63);
   });
-})
+});

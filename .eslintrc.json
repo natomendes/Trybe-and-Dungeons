@@ -26,6 +26,8 @@
         "mocha"
     ],
     "rules": {
+        "func-names": "off",
+        "prefer-arrow-callback": "off",
         "no-underscore-dangle": "off",
         "lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }],
         "@typescript-eslint/lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }],
@@ -63,15 +65,6 @@
                 "max": 20,
                 "skipBlankLines": true,
                 "skipComments": true
-            }
-        ],
-        "max-len": [
-            "error",
-            {
-                "code": 100
-            },
-            {
-                "ignoreComments": true
             }
         ],
         "complexity": [

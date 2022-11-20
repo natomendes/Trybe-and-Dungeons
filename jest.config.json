@@ -8,5 +8,5 @@
   "transform": {
     ".+\\.ts$": "ts-jest"
   },
-  "roots": ["<rootDir>/src/tests"]
+  "roots": ["<rootDir>/tests"]
 }
