@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 import Archetype, { Necromancer } from '../../src/Archetypes';
 
 const makeSut = (): Archetype => {
@@ -36,5 +37,11 @@ describe('Necromancer Class', function () {
   it('Should return the right cost when value is provided to constructor', function () {
     const sut = makeSutWithCostValue();
     expect(sut.cost).toBe(70);
+  });
+
+  it('Should have createdRacesInstances static method', function () {
+    const createdArchetypeSpy = jest.spyOn(Necromancer, 'createdArchetypeInstances');
+    Necromancer.createdArchetypeInstances();
+    expect(createdArchetypeSpy).toHaveBeenCalled();
   });
 });
