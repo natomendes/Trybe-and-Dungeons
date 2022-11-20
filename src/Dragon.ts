@@ -2,9 +2,10 @@ import Monster from './Monster';
 
 export default class Dragon extends Monster {
   constructor(
+    private points: number = 999,
     private _name: string = 'Dragon',
   ) {
-    super(999);
+    super(points);
   }
 
   get name(): string {

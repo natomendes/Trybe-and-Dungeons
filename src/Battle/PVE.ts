@@ -36,6 +36,7 @@ export default class PVE extends Battle {
 
   fight(): number {
     for (let i = 0; i < this.adversaries.length; i += 1) {
+      this.player.attack(this.adversaries[i]);
       const matchUpResult = this.matchUp(this.adversaries[i]);
       if (matchUpResult === -1) {
         break;

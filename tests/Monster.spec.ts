@@ -41,14 +41,21 @@ describe('Monster Class', function () {
     expect(sut.strength).toBe(63);
   });
 
-  it('Should set lifePoints to -1 if lifePoints drop below 1 after receiveDamage is called', function () {
+  it('Should set lifePoints to lifePoints - damage if damage is smaller than lifePoints', function () {
+    const attackPoints = 100;
+    const { sut } = makeSut();
+    sut.receiveDamage(attackPoints);
+    expect(sut.lifePoints).toBe(70);
+  });
+
+  it('Should set lifePoints to -1 if damage is bigger than lifePoints', function () {
     const attackPoints = 170;
     const { sut } = makeSut();
     sut.receiveDamage(attackPoints);
     expect(sut.lifePoints).toBe(-1);
   });
 
-  it('Should call receiveDamage on the enemy pass as argument when attack method is called', function () {
+  it('Should call receiveDamage on the enemy passed as argument when attack method is called', function () {
     const { sut, simpleFighterStub } = makeSut();
     const receiveDamageSpy = jest.spyOn(simpleFighterStub, 'receiveDamage');
     sut.attack(simpleFighterStub);

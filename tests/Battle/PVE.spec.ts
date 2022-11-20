@@ -1,6 +1,7 @@
 /* eslint-disable max-lines-per-function */
 import { PVE } from '../../src/Battle';
 import Character from '../../src/Character';
+import Dragon from '../../src/Dragon';
 import { makeOrcWarrior } from '../../src/Factories';
 import Monster from '../../src/Monster';
 
@@ -8,6 +9,17 @@ interface SutTypes {
   sut: PVE 
   monsterStub: Monster
 }
+
+const makeSutWithStrongMonster = (): SutTypes => {
+  const monsterStub = new Dragon(5000);
+  const OrcWarriotStub = makeOrcWarrior('OrcWarriorStub');
+  const ElfMageStub = new Character('ElfMageStub');  
+  const sut = new PVE(ElfMageStub, [monsterStub, OrcWarriotStub]);
+  return {
+    sut,
+    monsterStub,
+  };
+};
 
 const makeSut = (): SutTypes => {
   const monsterStub = new Monster();
@@ -45,5 +57,10 @@ describe('PVE Class', function () {
     const playRounsSpy = jest.spyOn(sut, 'playRound');
     sut.fight();
     expect(playRounsSpy).toHaveBeenCalledWith(monsterStub);
+  });
+
+  it('Should stop the fight when player loses', function () {
+    const { sut } = makeSutWithStrongMonster();
+    expect(sut.fight()).toBe(-1);
   });
 });
