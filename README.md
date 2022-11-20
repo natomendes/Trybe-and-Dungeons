@@ -1,5 +1,5 @@
 
-# Trybe & Dragons
+# Trybers & Dragons
 
 Projeto desenvolvido em Typescript, utilizando dos 
 conceitos de Programação Orientada a Objeto e o principios S.O.L.I.D, 
