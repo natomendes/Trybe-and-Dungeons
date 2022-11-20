@@ -24,6 +24,8 @@ describe('Elf Class', function () {
   });
 
   it('Should have createdRacesInstances static method', function () {
-    expect(Elf.createdRacesInstances).toBeDefined();
+    const createdRacesSpy = jest.spyOn(Elf, 'createdRacesInstances');
+    Elf.createdRacesInstances();
+    expect(createdRacesSpy).toHaveBeenCalled();
   });
 });
