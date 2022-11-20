@@ -10,6 +10,16 @@ interface SutTypes {
   monsterStub: Monster
 }
 
+const makeSutWithWeakMonster = (): SutTypes => {
+  const monsterStub = new Dragon(5);
+  const ElfMageStub = new Character('ElfMageStub');  
+  const sut = new PVE(ElfMageStub, [monsterStub]);
+  return {
+    sut,
+    monsterStub,
+  };
+};
+
 const makeSutWithStrongMonster = (): SutTypes => {
   const monsterStub = new Dragon(5000);
   const OrcWarriotStub = makeOrcWarrior('OrcWarriorStub');
@@ -62,5 +72,11 @@ describe('PVE Class', function () {
   it('Should stop the fight when player loses', function () {
     const { sut } = makeSutWithStrongMonster();
     expect(sut.fight()).toBe(-1);
+  });
+
+  it('Should return 1 when player wins the fight', function () {
+    const { sut, monsterStub } = makeSutWithWeakMonster();
+    jest.spyOn(monsterStub, 'attack').mockImplementation(() => {});
+    expect(sut.fight()).toBe(1);
   });
 });
