@@ -24,6 +24,8 @@ describe('Dwarf Class', function () {
   });
 
   it('Should have createdRacesInstances static method', function () {
-    expect(Dwarf.createdRacesInstances).toBeDefined();
+    const createdRacesSpy = jest.spyOn(Dwarf, 'createdRacesInstances');
+    Dwarf.createdRacesInstances();
+    expect(createdRacesSpy).toHaveBeenCalled();
   });
 });
