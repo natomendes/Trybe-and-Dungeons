@@ -61,4 +61,10 @@ describe('Mage Class', function () {
   it('Should throws when createdRacesInstances static method is not implemented', function () {
     expect(MageWithoutStatic.createdArchetypeInstances).toThrow();
   });
+
+  it('Should have createdRacesInstances static method', function () {
+    const createdArchetypeSpy = jest.spyOn(Mage, 'createdArchetypeInstances');
+    Mage.createdArchetypeInstances();
+    expect(createdArchetypeSpy).toHaveBeenCalled();
+  });
 });
